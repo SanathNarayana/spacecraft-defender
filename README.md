@@ -6,6 +6,8 @@
 
 This is a portfolio-focused rebuild of a game I first created as a school coding project in 2021. The rebuild keeps the original space-defence concept and selected visual assets while replacing the repetitive prototype logic with a clearer, data-driven game structure.
 
+> **Development note:** The 2026 refactor was completed with AI-assisted coding under my direction, using my original project as the starting point. I am reviewing and adapting each system as part of learning modern JavaScript structure and browser-game architecture. See the [architecture walkthrough](docs/LEARNING-NOTES.md).
+
 ## Play
 
 Open the [live game](https://sanathnarayana.github.io/spacecraft-defender/) or run it locally:
@@ -57,7 +59,7 @@ The original prototype represented every UFO and collision separately. This rebu
 ```text
 spacecraft-defender/
 ├── assets/          # Selected visual assets from the original student project
-├── docs/            # Repository preview image
+├── docs/            # Project banner and architecture walkthrough
 ├── src/game.js      # Game state, entities, input, rendering, and audio
 ├── index.html       # Accessible game interface
 └── style.css        # Responsive visual design
