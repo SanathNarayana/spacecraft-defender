@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Spacecraft Defender is a polished browser arcade game rebuilt from an early student project using HTML5 Canvas and vanilla JavaScript."
+    />
+    <meta name="theme-color" content="#070b19" />
+    <title>Spacecraft Defender</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="page-header">
+        <div>
+          <p class="eyebrow">Rebuilt student project · 2026</p>
+          <h1>Spacecraft <span>Defender</span></h1>
+        </div>
+        <a
+          class="source-link"
+          href="https://github.com/SanathNarayana/spacecraft-defender"
+          target="_blank"
+          rel="noreferrer"
+        >
+          View source
+        </a>
+      </header>
+
+      <section class="game-frame" aria-label="Spacecraft Defender game">
+        <div class="hud" aria-live="polite">
+          <div class="hud-item">
+            <span>Score</span>
+            <strong id="score">000000</strong>
+          </div>
+          <div class="hud-item hud-item--center">
+            <span>Wave</span>
+            <strong id="wave">01</strong>
+          </div>
+          <div class="hud-item hud-item--center">
+            <span>Hull</span>
+            <strong id="lives">● ● ●</strong>
+          </div>
+          <div class="hud-item hud-item--right">
+            <span>System</span>
+            <strong id="systemStatus">Ready</strong>
+          </div>
+        </div>
+
+        <div class="canvas-wrap">
+          <canvas
+            id="gameCanvas"
+            width="960"
+            height="600"
+            tabindex="0"
+            aria-label="Arcade game. Move with A and D or the arrow keys. Fire with Space."
+          ></canvas>
+
+          <div class="scanlines" aria-hidden="true"></div>
+
+          <div class="game-overlay" id="gameOverlay">
+            <div class="overlay-panel">
+              <p class="overlay-kicker" id="overlayKicker">Sector 07 needs you</p>
+              <h2 id="overlayTitle">Defend the relay</h2>
+              <p id="overlayText">
+                Move fast, clear each formation, and collect power cores before the fleet reaches your position.
+              </p>
+              <button id="primaryAction" type="button">Start mission</button>
+              <p class="keyboard-hint">Press Enter to start</p>
+            </div>
+          </div>
+
+          <div class="wave-message" id="waveMessage" aria-live="assertive"></div>
+        </div>
+
+        <div class="touch-controls" aria-label="Touch controls">
+          <button class="touch-button" id="moveLeft" type="button" aria-label="Move left">←</button>
+          <button class="touch-button touch-button--fire" id="fire" type="button">Fire</button>
+          <button class="touch-button" id="moveRight" type="button" aria-label="Move right">→</button>
+        </div>
+      </section>
+
+      <footer class="command-bar">
+        <div><kbd>A</kbd><kbd>D</kbd><span>or arrows to move</span></div>
+        <div><kbd>Space</kbd><span>fire</span></div>
+        <div><kbd>P</kbd><span>pause</span></div>
+        <div><kbd>M</kbd><span>sound</span></div>
+      </footer>
+    </main>
+
+    <script type="module" src="src/game.js"></script>
+  </body>
+</html>

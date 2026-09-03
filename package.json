@@ -1,0 +1,12 @@
+{
+  "name": "spacecraft-defender",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A polished browser arcade game rebuilt from an early student project.",
+  "type": "module",
+  "scripts": {
+    "start": "python3 -m http.server 4317 --bind 127.0.0.1",
+    "check": "node --check src/game.js",
+    "test": "node tests/smoke.mjs"
+  }
+}
