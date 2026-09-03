@@ -2,21 +2,23 @@
 
 ![Spacecraft Defender project banner](docs/banner.svg)
 
-**Spacecraft Defender** is a responsive browser arcade game built with HTML5 Canvas, CSS, and vanilla JavaScript. Defend the relay through increasingly difficult enemy waves, collect temporary upgrades, and chase a locally saved high score.
+Spacecraft Defender is a browser game where you move a spacecraft, shoot enemy UFOs, collect power-ups, and try to survive as many waves as possible.
 
-This is a portfolio-focused rebuild of a game I first created as a school coding project in 2021. The rebuild keeps the original space-defence concept and selected visual assets while replacing the repetitive prototype logic with a clearer, data-driven game structure.
+I first made a version of this game in 2021 while I was learning JavaScript at school. It worked, but the code had a separate variable and collision check for almost every enemy. I came back to the project in 2026 and rebuilt it so the game would be smoother, easier to maintain, and more enjoyable to play.
 
-> **Development note:** The 2026 refactor was completed with AI-assisted coding under my direction, using my original project as the starting point. I am reviewing and adapting each system as part of learning modern JavaScript structure and browser-game architecture. See the [architecture walkthrough](docs/LEARNING-NOTES.md).
+I used AI to help with parts of the refactor and visual design. The original project and game idea are mine, and I directed the rebuild. I am reviewing the new code and using the [learning notes](docs/LEARNING-NOTES.md) to better understand how each part works.
 
-## Play
+## Play the game
 
-Open the [live game](https://sanathnarayana.github.io/spacecraft-defender/) or run it locally:
+[Play Spacecraft Defender online](https://sanathnarayana.github.io/spacecraft-defender/)
+
+To run it locally, start a simple web server in the project folder:
 
 ```bash
 python3 -m http.server 4317 --bind 127.0.0.1
 ```
 
-Then visit `http://localhost:4317`.
+Then open `http://localhost:4317` in your browser. There is no installation or build step.
 
 ## Controls
 
@@ -25,66 +27,52 @@ Then visit `http://localhost:4317`.
 | Move | `A` / `D` or arrow keys | Left and right buttons |
 | Fire | `Space` | Fire button |
 | Pause | `P` or `Esc` | — |
-| Toggle sound | `M` | — |
+| Turn sound on or off | `M` | — |
 
-You can also drag across the game area to position the spacecraft on pointer-enabled devices.
+You can also drag across the game area to move the spacecraft on devices that support pointer input.
 
-## Features
+## What is in the game
 
-- Data-driven enemy formations that scale across waves
-- Increasing movement and projectile difficulty
-- Score, hull, wave, and system-status HUD
+- Enemy waves that become faster and more difficult
 - Shield and rapid-fire power-ups
-- Particle effects, screen shake, parallax stars, and synthesized sound
-- Start, pause, game-over, and restart states
-- Keyboard, pointer, and mobile touch controls
-- Responsive layout with reduced-motion support
-- Local high-score persistence
-- Dependency-free smoke test for core gameplay flows
-- No framework, package installation, or build step required
+- Score, health, wave, and high-score tracking
+- Keyboard, touch, and pointer controls
+- Pause, game-over, and restart screens
+- Particle effects, screen shake, moving stars, and sound effects
+- A responsive layout for desktop and mobile screens
 
-## Refactoring highlights
+## What I changed
 
-The original prototype represented every UFO and collision separately. This rebuild improves that foundation by using:
+The biggest change was replacing the repeated enemy code with arrays and reusable classes. Enemies, bullets, particles, and power-ups can now be created and updated through the same shared logic.
 
-- Arrays and reusable classes for enemies, projectiles, particles, and power-ups
-- A single animation loop with delta-time movement
-- Reusable collision and fleet-management logic
-- A small state machine for the complete game lifecycle
-- DOM-based controls and HUD updates around a Canvas game surface
-- Browser-native Web Audio for lightweight sound effects
+I also added a single animation loop, clearer game states, mobile controls, locally saved high scores, sound effects, and a basic smoke test for the main gameplay flow.
 
 ## Project structure
 
 ```text
 spacecraft-defender/
-├── assets/          # Selected visual assets from the original student project
-├── docs/            # Project banner and architecture walkthrough
-├── src/game.js      # Game state, entities, input, rendering, and audio
-├── index.html       # Accessible game interface
-└── style.css        # Responsive visual design
+├── assets/          # Images from my original school project
+├── docs/            # Project banner and learning notes
+├── src/game.js      # Gameplay, input, drawing, and sound
+├── tests/            # Basic gameplay smoke test
+├── index.html        # Game page and interface
+└── style.css         # Layout and visual design
 ```
 
-## Built with
+The project uses HTML5 Canvas, vanilla JavaScript, CSS, the Web Audio API, and the browser's Local Storage API.
 
-- HTML5 Canvas
-- Vanilla JavaScript
-- CSS
-- Web Audio API
-- Local Storage API
+## What I learned
 
-## Project history
+Revisiting this project showed me why reusable objects and shared functions are better than writing almost the same code many times. It also gave me a practical introduction to game states, frame-based animation, collision detection, responsive controls, and organising a larger JavaScript file.
 
-The first version was created while I was learning JavaScript during school. In 2026, I revisited the idea to practice refactoring, reduce duplicated logic, improve the user experience, and turn an early learning project into a more complete browser game.
+## Ideas for later
 
-## Future improvements
-
-- Boss waves and additional enemy behaviours
-- Multiple spacecraft choices
-- Online leaderboard backed by an API
-- Automated gameplay tests
+- Add boss waves and more types of enemy movement
+- Let the player choose between different spacecraft
+- Build an online leaderboard with an API
+- Add more automated gameplay tests
 
 ## Author
 
-**Sanath Narayana**<br>
+Made by **Sanath Narayana**<br>
 [GitHub](https://github.com/SanathNarayana) · [LinkedIn](https://www.linkedin.com/in/sanath-suresh-a30743376/)
